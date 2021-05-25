@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -13,30 +17,36 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           Row(
             children: [
               Expanded(
-                child: ReusableCard(Color(0xFF1D1E33)),
+                child: ReusableCard(activeCardColor),
               ),
               Expanded(
-                child: ReusableCard(Color(0xFF1D1E33)),
+                child: ReusableCard(activeCardColor),
               ),
             ],
           ),
           Expanded(
-            child: ReusableCard(Color(0xFF1D1E33)),
+            child: ReusableCard(activeCardColor),
           ),
           Row(
             children: [
               Expanded(
-                child: ReusableCard(Color(0xFF1D1E33)),
+                child: ReusableCard(activeCardColor),
               ),
               Expanded(
-                child: ReusableCard(Color(0xFF1D1E33)),
+                child: ReusableCard(activeCardColor),
               ),
             ],
           ),
+          Container(
+            color: bottomContainerColor,
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight,
+          )
         ],
       ),
     );
