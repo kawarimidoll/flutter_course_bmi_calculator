@@ -14,6 +14,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
+  int weight = 73;
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +120,51 @@ class _InputPageState extends State<InputPage> {
                 child: ReusableCard(
                   onTap: () {},
                   color: kActiveCardColor,
-                  child: Container(),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          // crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            FloatingActionButton(
+                              backgroundColor: Color(0xFF4C4F5E),
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              child: Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(width:10.0),
+                            FloatingActionButton(
+                              backgroundColor: Color(0xFF4C4F5E),
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ),
               Expanded(
