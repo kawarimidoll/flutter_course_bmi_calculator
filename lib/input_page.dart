@@ -133,32 +133,24 @@ class _InputPageState extends State<InputPage> {
                           style: kNumberTextStyle,
                         ),
                         Row(
-                          // crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
                                   weight--;
                                 });
                               },
-                              child: Icon(
-                                Icons.remove,
-                                color: Colors.white,
-                              ),
                             ),
-                            SizedBox(width:10.0),
-                            FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
                               onPressed: () {
                                 setState(() {
                                   weight++;
                                 });
                               },
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
                             ),
                           ],
                         )
@@ -185,5 +177,27 @@ class _InputPageState extends State<InputPage> {
         ],
       ),
     );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final IconData icon;
+  final void Function() onPressed;
+
+  RoundIconButton({required this.icon, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+        child: Icon(icon),
+        elevation: 6.0,
+        disabledElevation: 6.0,
+        constraints: BoxConstraints.tightFor(
+          width: 56.0,
+          height: 56.0,
+        ),
+        shape: CircleBorder(),
+        fillColor: Color(0xFF4C4F5E),
+        onPressed: onPressed);
   }
 }
