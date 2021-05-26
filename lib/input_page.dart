@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
+import 'round_icon_button.dart';
 import 'constants.dart';
 
 enum Gender { male, female }
@@ -64,7 +65,6 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              onTap: () {},
               color: kActiveCardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +119,6 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: ReusableCard(
-                  onTap: () {},
                   color: kActiveCardColor,
                   child: Container(
                     child: Column(
@@ -162,7 +161,6 @@ class _InputPageState extends State<InputPage> {
               ),
               Expanded(
                 child: ReusableCard(
-                  onTap: () {},
                   color: kActiveCardColor,
                   child: Container(
                     child: Column(
@@ -214,27 +212,5 @@ class _InputPageState extends State<InputPage> {
         ],
       ),
     );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  final void Function() onPressed;
-
-  RoundIconButton({required this.icon, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-        child: Icon(icon),
-        elevation: 6.0,
-        disabledElevation: 6.0,
-        constraints: BoxConstraints.tightFor(
-          width: 56.0,
-          height: 56.0,
-        ),
-        shape: CircleBorder(),
-        fillColor: Color(0xFF4C4F5E),
-        onPressed: onPressed);
   }
 }

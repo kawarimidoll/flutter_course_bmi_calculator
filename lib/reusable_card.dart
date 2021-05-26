@@ -7,9 +7,9 @@ const cardRadius = 10.0;
 class ReusableCard extends StatelessWidget {
   final Color color;
   final Widget child;
-  final void Function() onTap;
+  final void Function()? onTap;
 
-  ReusableCard({required this.color, required this.child, required this.onTap});
+  ReusableCard({required this.color, required this.child, this.onTap});
 
   @override
   Widget build(BuildContext context) {
