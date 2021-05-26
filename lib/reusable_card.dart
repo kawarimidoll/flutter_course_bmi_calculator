@@ -7,19 +7,23 @@ const cardRadius = 10.0;
 class ReusableCard extends StatelessWidget {
   final Color color;
   final Widget child;
+  final void Function() onTap;
 
-  ReusableCard({required this.color, required this.child});
+  ReusableCard({required this.color, required this.child, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: child,
-      margin: EdgeInsets.all(cardMargin),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(cardRadius),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        child: child,
+        margin: EdgeInsets.all(cardMargin),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(cardRadius),
+        ),
+        height: cardHeight,
       ),
-      height: cardHeight,
     );
   }
 }
