@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'input_page.dart';
-
-const mainColor = Color(0xFF0A0D22);
+import 'constants.dart';
 
 void main() => runApp(BMICalculator());
 
@@ -11,8 +10,8 @@ class BMICalculator extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        primaryColor: mainColor,
-        scaffoldBackgroundColor: mainColor,
+        primaryColor: kMainColor,
+        scaffoldBackgroundColor: kMainColor,
       ),
       home: InputPage(),
     );
