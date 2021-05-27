@@ -5,6 +5,7 @@ import 'package:flutter_course_bmi_calculator/components/icon_content.dart';
 import 'package:flutter_course_bmi_calculator/components/round_icon_button.dart';
 import 'package:flutter_course_bmi_calculator/components/footer_large_button.dart';
 import 'package:flutter_course_bmi_calculator/screens/results_page.dart';
+import 'package:flutter_course_bmi_calculator/calculator_brain.dart';
 import 'package:flutter_course_bmi_calculator/constants.dart';
 
 enum Gender { male, female }
@@ -109,7 +110,7 @@ class _InputPageState extends State<InputPage> {
                         setState(() {
                           height = newValue.round();
                         });
-                        print(newValue);
+                        // print(newValue);
                       },
                     ),
                   ),
@@ -208,10 +209,18 @@ class _InputPageState extends State<InputPage> {
           FooterLargeButton(
             label: 'CALCULATE',
             onTap: () {
+              CalculatorBrain calc = CalculatorBrain(
+                height: height,
+                weight: weight,
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ResultsPage(),
+                  builder: (context) => ResultsPage(
+                    resultText: calc.getResultText(),
+                    bmiValue: calc.getBmiValue(),
+                    interpretation: calc.getInterpretation(),
+                  ),
                 ),
               );
             },
