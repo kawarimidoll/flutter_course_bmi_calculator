@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'reusable_card.dart';
-import 'footer_large_button.dart';
-import 'constants.dart';
+import 'package:flutter_course_bmi_calculator/components/footer_large_button.dart';
+import 'package:flutter_course_bmi_calculator/components/reusable_card.dart';
+import 'package:flutter_course_bmi_calculator/constants.dart';
 
 enum BmiType { overweight, normal, underweight }
 Map<BmiType, String> messages = {
